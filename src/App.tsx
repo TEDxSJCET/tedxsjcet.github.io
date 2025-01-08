@@ -16,7 +16,6 @@ import hero9 from "@/assets/hero9.webp"
 import hero10 from "@/assets/hero10.webp"
 
 import ocean from "@/assets/ocean.webp"
-import { Button } from './components/ui/button';
 
 const App: Component = () => {
 

@@ -6,6 +6,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
+    "dev:components": "vite --mode components",
     "build": "vite build",
     "serve": "vite preview"
   },
@@ -15,6 +16,7 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16",
+    "tailwindcss-motion": "^1.0.1",
     "typescript": "^5.7.2",
     "vite": "^6.0.0",
     "vite-plugin-solid": "^2.11.0"
@@ -25,7 +27,9 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
+    "lucide-solid": "^0.469.0",
     "solid-js": "^1.9.3",
+    "solid-motionone": "^1.0.3",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"
   }

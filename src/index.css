@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -142,4 +144,21 @@
 
 .cal-sans {
   font-family: "Cal Sans";
+  line-height: normal!important;
+}
+
+.caveat {
+  font-family: "Caveat", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.parallax {
+  overflow: hidden;
+  letter-spacing: -2px;
+  /* line-height: 0.8; */
+  margin: 0;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
 }
