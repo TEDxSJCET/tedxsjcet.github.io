@@ -144,21 +144,11 @@
 
 .cal-sans {
   font-family: "Cal Sans";
-  line-height: normal!important;
+  /* line-height: normal!important; */
 }
 
 .caveat {
   font-family: "Caveat", serif;
   font-optical-sizing: auto;
   font-style: normal;
-}
-
-.parallax {
-  overflow: hidden;
-  letter-spacing: -2px;
-  /* line-height: 0.8; */
-  margin: 0;
-  white-space: nowrap;
-  display: flex;
-  flex-wrap: nowrap;
 }

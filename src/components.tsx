@@ -1,4 +1,5 @@
 import { TextCombo } from "./components/header";
+import { ParallaxText } from "./components/parallax";
 import { SpeakerQuote } from "./components/quote";
 import { Button } from "./components/ui/button";
 
@@ -16,6 +17,18 @@ const Home = () => {
                 header="Speakers."
                 sub="We present to you some of the most flamboyant and remarkable individuals who epitomize passion and perseverance to inspire, uplift and empower you. We present to you some of the most flamboyant and remarkable individuals who epitomize passion and perseverance to inspire, uplift and empower you. We present to you some of the most flamboyant and remarkable individuals who epitomize passion and perseverance to inspire, uplift and empower you."
             />
+
+            <div class="-rotate-12 w-[150vw] -translate-x-1/3">
+                <ParallaxText direction="left">
+                    TED<span class="text-tedx">x</span>SJCET
+                </ParallaxText>
+                <ParallaxText direction="right">
+                    08 <span class="text-tedx">Feb</span> 20<span class="text-tedx">25</span>
+                </ParallaxText>
+                <ParallaxText direction="left">
+                    Excellence <span class="text-tedx">beyond</span> notice<span class="text-tedx">.</span>
+                </ParallaxText>
+            </div>
             <SpeakerQuote sub="some subheading">
                 Some annoying <span class="text-tedx">philosophical</span> quotes by this guest
             </SpeakerQuote>
