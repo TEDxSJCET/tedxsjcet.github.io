@@ -1,92 +1,130 @@
-import type { Component } from 'solid-js';
-import { onMount } from 'solid-js';
-import gsap from 'gsap';
-import NavBar from '@/components/NavBar';
+import { createSignal, onCleanup, onMount, For } from "solid-js";
+import { gsap } from "gsap";
+import { Observer } from "gsap/Observer";
+import HeroSection from "./components/HeroSection";
+import NavBar from "./components/NavBar";
+import AboutSection from "./components/AboutSection";
+import SpeakersSection from "./components/SpeakerSection";
+import { speakers } from "./lib/data";
+import SpeakerDetail from "./components/SpeakerDetail";
+import Register from "./components/Register";
+import CoreTeam from "./components/CoreTeam";
 
-import hero1 from "@/assets/hero1.png"
-import hero2 from "@/assets/hero2.webp"
-import hero7 from "@/assets/hero7.webp"
+gsap.registerPlugin(Observer);
 
-import hero3 from "@/assets/hero3.webp"
-import hero4 from "@/assets/hero4.webp"
-import hero8 from "@/assets/hero8.webp"
+const Speakers = speakers.map((speaker) => ({
+  content: () => (
+    <SpeakerDetail name={speaker.name} position={speaker.position} photo={speaker.image} quote={speaker.quote} />
+  ),
+}));
 
-import hero5 from "@/assets/hero5.webp"
-import hero9 from "@/assets/hero9.webp"
-import hero10 from "@/assets/hero10.webp"
+const sections = [
+  { content: HeroSection },
+  { content: AboutSection },
+  { content: SpeakersSection },
+  ...Speakers,
+  { content: CoreTeam },
+  { content: Register },
+];
 
-import ocean from "@/assets/ocean.webp"
-import { Button } from './components/ui/button';
+const AnimatedSections = () => {
+  let sectionRefs: HTMLElement[] = [];
+  let headingRefs: HTMLElement[] = [];
+  let outerRefs: HTMLElement[] = [];
+  let innerRefs: HTMLElement[] = [];
+  let bgRefs: HTMLElement[] = [];
 
-const App: Component = () => {
+  const [currentIndex, setCurrentIndex] = createSignal(-1);
+  const [animating, setAnimating] = createSignal(false);
 
-    onMount(() => {
-        const timeline = gsap.timeline({ repeat: -1 });
-        const images = document.querySelectorAll('.hero1, .hero2, .hero7');
-        const smallerImages = document.querySelectorAll('.hero3, .hero4, .hero8');
-        const tedXImages = document.querySelectorAll('.hero5, .hero9, .hero10');
-        const bottomText = document.querySelectorAll('.bottom-text');
+  const wrap = gsap.utils.wrap(0, sections.length);
 
-        for (let i = 0; i < images.length - 1; i++) {
-            timeline
-                .to([images[i], smallerImages[i], tedXImages[i], bottomText[i]], { opacity: 0, duration: 1, delay: 2 })
-                .to([images[i + 1], smallerImages[i + 1], tedXImages[i+1], bottomText[i+1]], { opacity: 1, duration: 1 }, '<');
-        }
+  const gotoSection = (index: number, direction: number) => {
+    if (index < 0 || index >= sections.length || animating()) return;
 
-        timeline
-            .to([images[images.length - 1], smallerImages[images.length - 1], tedXImages[images.length - 1], bottomText[images.length - 1]],
-                { opacity: 0, duration: 1, delay: 2 })
-            .to([images[0], smallerImages[0], tedXImages[0], bottomText[0]], { opacity: 1, duration: 1 }, '<');
+    index = wrap(index);
+    setAnimating(true);
+
+    const fromTop = direction === -1;
+    const dFactor = fromTop ? -1 : 1;
+    const tl = gsap.timeline({
+      defaults: { duration: 1.25, ease: "power1.inOut" },
+      onComplete: (): void => {
+        setAnimating(false);
+      },
     });
 
-    return (
-        <div class='flex flex-col w-full min-h-screen bg-black overflow-auto text-white relative scroll-smooth'>
-            <NavBar/>
-            {/* Hero Section */}
-            <div id='home'></div>
-            <div class='flex flex-col w-full h-screen md:flex-row-reverse'>
-                <div class='relative h-1/2 md:h-full md:w-1/2 flex bg-slate-300'>
-                    <img src={hero5} class='hero5 absolute w-full h-full object-cover' />
-                    <img src={hero9} class='hero9 opacity-0 absolute w-full h-full object-cover' />
-                    <img src={hero10} class='hero10 opacity-0 absolute w-full h-full object-cover' />
+    if (currentIndex() >= 0) {
+      gsap.set(sectionRefs[currentIndex()], { zIndex: 0 });
+      tl.to(bgRefs[currentIndex()], { yPercent: -15 * dFactor }).set(sectionRefs[currentIndex()], { autoAlpha: 0 });
+    }
+
+    gsap.set(sectionRefs[index], { autoAlpha: 1, zIndex: 1 });
+    tl.fromTo(
+      [outerRefs[index], innerRefs[index]],
+      { yPercent: (i) => (i ? -100 * dFactor : 100 * dFactor) },
+      { yPercent: 0 },
+      0
+    )
+      .fromTo(bgRefs[index], { yPercent: 15 * dFactor }, { yPercent: 0 }, 0)
+      .fromTo(
+        headingRefs[index].querySelectorAll(".char"),
+        { autoAlpha: 0, yPercent: 150 * dFactor },
+        { autoAlpha: 1, yPercent: 0, duration: 1, ease: "power2", stagger: { each: 0.02, from: "random" } },
+        0.2
+      );
+
+    setCurrentIndex(index);
+  };
+
+  onMount(() => {
+    gsap.set(outerRefs, { yPercent: 100 });
+    gsap.set(innerRefs, { yPercent: -100 });
+
+    const observer = Observer.create({
+      type: "wheel,touch,pointer",
+      wheelSpeed: -1,
+      onDown: () => gotoSection(currentIndex() - 1, -1),
+      onUp: () => gotoSection(currentIndex() + 1, 1),
+      tolerance: 10,
+      preventDefault: true,
+    });
+
+    gotoSection(0, 1);
+
+    onCleanup(() => {
+      gsap.killTweensOf("*");
+      observer.kill();
+    });
+  });
+
+  return (
+    <div class="h-screen bg-black text-white overflow-hidden">
+      <NavBar />
+      <For each={sections}>
+        {(section, index) => (
+          <section
+            id={index().toString()}
+            ref={(el) => (sectionRefs[index()] = el)}
+            class="h-full w-full top-0 fixed invisible"
+          >
+            <div ref={(el) => (outerRefs[index()] = el)} class="w-full h-full overflow-y-hidden">
+              <div ref={(el) => (innerRefs[index()] = el)} class="w-full h-full overflow-y-hidden">
+                <div
+                  ref={(el) => (bgRefs[index()] = el)}
+                  class="flex absolute h-full w-full top-0 bg-cover bg-center bg-black"
+                >
+                  <div ref={(el) => (headingRefs[index()] = el)} class="w-full">
+                    <section.content />
+                  </div>
                 </div>
-                <div class='h-1/2 md:h-full md:w-1/2'>
-                    <div class='h-2/3 flex flex-row'>
-                        <div class='relative flex w-1/2 bg-slate-200 z-10'>
-                            <img src={hero1} class='hero1 absolute w-full h-full object-cover' />
-                            <img src={hero2} class='hero2 opacity-0 absolute w-full h-full object-cover' />
-                            <img src={hero7} class='hero7 opacity-0 absolute w-full h-full object-cover' />
-                        </div>
-                        <div class='relative flex w-1/2 bg-slate-700 justify-center items-center'>
-                            <img src={ocean} class='ocean absolute w-full h-full object-cover'/>
-                            <h1 class='-rotate-90 w-fit h-fit text-3xl md:text-4xl font-bold'>Excellence<br />beyond notice</h1>
-                        </div>
-                    </div>
-                    <div class='h-1/3 flex flex-row'>
-                        <div class='relative flex w-1/2 bg-white justify-center items-center'>
-                            <h2 class='bottom-text text-black text-2xl md:text-3xl w-fit h-fit font-bold absolute'>
-                                Different<br /> Perspectives
-                            </h2>
-                            <h2 class='bottom-text text-black text-2xl md:text-3xl w-fit h-fit font-bold absolute opacity-0'>
-                                5 Speakers
-                            </h2>
-                            <h2 class='bottom-text text-black text-2xl md:text-3xl w-fit h-fit font-bold absolute opacity-0'>
-                                Join us
-                            </h2>
-                        </div>
-                        <div class='flex w-1/2 relative'>
-                            <img src={hero3} class='hero3 absolute w-full h-full object-cover' />
-                            <img src={hero4} class='hero4 opacity-0 absolute w-full h-full object-cover' />
-                            <img src={hero8} class='hero8 opacity-0 absolute w-full h-full object-cover' />
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-            <div id='about'></div>
-            <div class='flex flex-col w-full h-screen'>
-            </div>
-        </div>
-    );
+          </section>
+        )}
+      </For>
+    </div>
+  );
 };
 
-export default App;
+export default AnimatedSections;
