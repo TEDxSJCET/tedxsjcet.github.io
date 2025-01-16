@@ -82,7 +82,8 @@ export default function SpeakersSection() {
             </div>
           ))}
         </div>
-      </section><section class="flex flex-1 flex-col items-center justify-center min-h-screen bg-black text-white px-4 sm:px-8 p-5 relative">
+      </section>
+      {/* <section class="hidden md:flex flex-1 flex-col items-center justify-center min-h-screen bg-black text-white px-4 sm:px-8 p-5 relative">
         <h1 class="absolute font-bold text-tedx-red/40 inset-0 text-[50rem] flex justify-center items-center pointer-events-none">
           X
         </h1>
@@ -112,7 +113,7 @@ export default function SpeakersSection() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
     </DottedGridBackground>
   );
 }

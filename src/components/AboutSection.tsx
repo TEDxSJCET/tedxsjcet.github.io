@@ -42,7 +42,7 @@ const AboutSection: Component = () => {
         </div>
         <div class="flex flex-col justify-center text-center h-full space-y-4 md:space-y-8">
           <div class="max-w-lg mx-auto space-y-10">
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-tedx-dark">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-tedx-dark cal-sans">
               What is Ted X<span class="text-tedx-red">?</span>
             </h2>
             <p class="text-gray-800 font-medium text-sm md:text-lg leading-relaxed">
