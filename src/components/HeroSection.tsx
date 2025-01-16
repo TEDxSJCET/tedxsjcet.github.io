@@ -1,17 +1,26 @@
-import { onMount, createSignal, For, Show, type Component } from "solid-js";
+import { createSignal, For, Show, createEffect, onCleanup, type Component } from "solid-js";
 import { Motion, Presence } from "solid-motionone";
+import { gsap } from "gsap";
 import { HeroSectionData } from "@/lib/data";
 
 const HeroSection: Component = () => {
   const [activeIndex, setActiveIndex] = createSignal(0);
   const { bottomTexts, heroImages, smallerImages, stableImage, tedXImages } = HeroSectionData;
 
-  onMount(() => {
+  createEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % heroImages.length);
     }, 3000);
 
-    return () => clearInterval(interval);
+    onCleanup(() => clearInterval(interval));
+  });
+
+  createEffect(() => {
+    gsap.fromTo(
+      ".hero-image, .tedx-image, .bottom-text, .smaller-image",
+      { opacity: 0 },
+      { opacity: 1, duration: 1, stagger: 0.2, ease: "power2.inOut" }
+    );
   });
 
   return (
@@ -26,7 +35,7 @@ const HeroSection: Component = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 1 }}
-                  class="absolute w-full h-full"
+                  class="tedx-image absolute w-full h-full"
                 >
                   <img src={img} class="w-full h-full object-cover" alt={`TedX Image ${index() + 1}`} />
                 </Motion.div>
@@ -47,7 +56,7 @@ const HeroSection: Component = () => {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 1 }}
-                      class="absolute w-full h-full"
+                      class="hero-image absolute w-full h-full"
                     >
                       <img src={img} class="w-full h-full object-cover" alt={`Hero Image ${index() + 1}`} />
                     </Motion.div>
@@ -76,7 +85,7 @@ const HeroSection: Component = () => {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 1 }}
-                      class="text-black text-2xl md:text-3xl w-fit h-fit font-bold absolute"
+                      class="bottom-text text-black text-2xl md:text-3xl w-fit h-fit font-bold absolute"
                     >
                       {text}
                     </Motion.h2>
@@ -95,7 +104,7 @@ const HeroSection: Component = () => {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 1 }}
-                      class="absolute w-full h-full"
+                      class="smaller-image absolute w-full h-full"
                     >
                       <img src={img} class="w-full h-full object-cover" alt={`Smaller Image ${index() + 1}`} />
                     </Motion.div>

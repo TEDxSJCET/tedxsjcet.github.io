@@ -1,20 +1,19 @@
-import { For, onMount, type Component } from "solid-js";
+import { For, onMount, type Component, createMemo } from "solid-js";
 import gsap from "gsap";
+import DottedGridBackground from "./DottedGridBackground";
 
 import about from "@/assets/about.jpeg";
 import about2 from "@/assets/about2.jpeg";
 import about3 from "@/assets/about3.jpeg";
 import about4 from "@/assets/about4.jpeg";
-import DashedDottedGrid from "./DashedDottedGrid";
-import DottedGridBackground from "./DottedGridBackground";
 
-const cardData = [
+const cardData = createMemo(() => [
   { title: "Business", color: "bg-[#97AEBC]", textColor: "text-[#497689]", img: about2 },
   { title: "Culture & History", color: "bg-[#090806]", textColor: "text-[#D3D3CB]", img: about3 },
   { title: "Education", color: "bg-[#C45D4E]", textColor: "text-[#D3D3CB]", img: about4 },
   { title: "Technology", color: "bg-[#532901]", textColor: "text-[#CABDA8]", img: about2 },
   { title: "Entertainment", color: "bg-[#C785A0]", textColor: "text-[#A75576]", img: about },
-];
+]);
 
 const AboutSection: Component = () => {
   onMount(() => {
@@ -35,10 +34,10 @@ const AboutSection: Component = () => {
       <div class="grid grid-cols-1 lg:grid-cols-2 h-full max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-16 z-10">
         <div class="flex flex-col justify-center h-full -space-y-8 p-3">
           <div class="grid grid-cols-2 gap-6 justify-center max-w-[80%] mx-auto">
-            <For each={cardData.slice(3)}>{(card, index) => <Card {...card} index={index() + 3} />}</For>
+            <For each={cardData().slice(3)}>{(card, index) => <Card {...card} index={index() + 3} />}</For>
           </div>
           <div class="grid grid-cols-3 gap-6">
-            <For each={cardData.slice(0, 3)}>{(card, index) => <Card {...card} index={index()} />}</For>
+            <For each={cardData().slice(0, 3)}>{(card, index) => <Card {...card} index={index()} />}</For>
           </div>
         </div>
         <div class="flex flex-col justify-center text-center h-full space-y-4 md:space-y-8">
