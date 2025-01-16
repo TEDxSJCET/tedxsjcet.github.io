@@ -18,9 +18,9 @@ import SpeakerSection from "@/components/SpeakerSection";
 import SpeakerDetail from "@/components/SpeakerDetail";
 
 export const HeroSectionData = {
-  heroImages: [hero1, hero2, hero7],
-  smallerImages: [hero3, hero4, hero8],
-  tedXImages: [hero5, hero9, hero10],
+  heroImages: ['/hero1.webp', '/hero2.webp', '/hero7.webp'],
+  smallerImages: ['/hero3.webp', '/hero4.webp', '/hero8.webp'],
+  tedXImages: ['/hero5.webp', '/hero9.webp', '/hero10.webp'],
   bottomTexts: ["Different Perspectives", "5 Speakers", "Join us"],
   stableImage: ocean,
 };
