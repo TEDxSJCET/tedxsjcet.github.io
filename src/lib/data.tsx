@@ -22,7 +22,7 @@ export const HeroSectionData = {
   smallerImages: ['/hero3.webp', '/hero4.webp', '/hero8.webp'],
   tedXImages: ['/hero5.webp', '/hero9.webp', '/hero10.webp'],
   bottomTexts: ["Different Perspectives", "5 Speakers", "Join us"],
-  stableImage: ocean,
+  stableImage:'/ocean.webp'
 };
 
 export const speakers = [
