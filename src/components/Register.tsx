@@ -30,9 +30,9 @@ export default function HeroSection() {
           </div>
           <div class="flex items-start">
             <div class="relative">
-              <button class="bg-red-500 text-white px-6 py-2.5 text-xl rounded hover:bg-red-600 transition-colors">
+              <a href="/register/index.html" class="bg-red-500 text-white px-6 py-2.5 text-xl rounded hover:bg-red-600 transition-colors">
                 Register
-              </button>
+              </a>
               <span class="absolute -right-2 -bottom-4 rotate-[-12deg] text-xl font-handwriting text-tedx-black">
                 Early Bird
               </span>

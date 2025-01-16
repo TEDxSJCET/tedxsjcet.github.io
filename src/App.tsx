@@ -134,7 +134,7 @@ const AnimatedSections = () => {
 
   return (
     <div class="h-screen bg-black text-white overflow-hidden">
-      {!showTedxLogo() && <NavBar />}
+      {!showTedxLogo() && <NavBar goToSection={gotoSection}/>}
       {showTedxLogo() ? (
         <div class="h-full w-full top-0 fixed">
           <TedxLogo
