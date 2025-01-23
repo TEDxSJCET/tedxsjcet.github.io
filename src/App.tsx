@@ -29,12 +29,12 @@ const AnimatedSections = () => {
   const sections = createMemo(() => [
     { content: HeroSection },
     { content: AboutSection },
-    { content: SpeakersSection },
-    ...speakers.map((speaker) => ({
-      content: () => (
-        <SpeakerDetail name={speaker.name} position={speaker.position} photo={speaker.image} quote={speaker.quote} />
-      ),
-    })),
+    // { content: SpeakersSection },
+    // ...speakers.map((speaker) => ({
+    //   content: () => (
+    //     <SpeakerDetail name={speaker.name} position={speaker.position} photo={speaker.image} quote={speaker.quote} />
+    //   ),
+    // })),
     { content: CoreTeam },
     { content: Register },
   ]);

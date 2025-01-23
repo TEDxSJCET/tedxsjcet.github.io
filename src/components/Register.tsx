@@ -2,6 +2,7 @@ import clg from "@/assets/clg.png";
 import logo from "@/assets/clg-logo.svg";
 import tedxsjcet from "@/assets/tedxsjcet.svg";
 import DottedGridBackground from "./DottedGridBackground";
+import { Button } from "./ui/button";
 
 export default function HeroSection() {
   return (
@@ -32,21 +33,19 @@ export default function HeroSection() {
           <div class="flex items-start">
             <div class="relative">
               <a
-                href="/register/index.html"
-                class="bg-red-500 text-white px-6 py-2.5 text-xl rounded hover:bg-red-600 transition-colors"
-              >
-                Register
+                href="/register/index.html">
+                <Button size={"lg"} class="relative" variant={"tedx"}>
+                  Register
+                  <span class="caveat absolute text-tedx-dark -right-5 -bottom-2 text-2xl underline -rotate-[20deg]">Early Bird</span>
+                </Button>
               </a>
-              <span class="absolute -right-2 -bottom-4 rotate-[-12deg] text-xl font-handwriting text-tedx-black">
-                Early Bird
-              </span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Footer Section */}
-      <div class="sticky z-50 bottom-0 md:h-96 left-0 w-full bg-black text-white py-6">
+      <div class="z-50 bottom-0 h-44 md:h-72 left-0 w-full bg-black text-white py-6 hidden">
         <div class="container mx-auto px-4 flex gap-10 flex-col-reverse  md:flex-row justify-between">
           {/* Logo and License Text Section */}
           <div class="flex flex-col gap-7 items-start mb-8">
