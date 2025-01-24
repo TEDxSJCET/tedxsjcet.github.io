@@ -32,13 +32,14 @@ export default function HeroSection() {
           </div>
           <div class="flex items-start">
             <div class="relative">
-              <a
+              {/* <a
                 href="/register/index.html">
                 <Button size={"lg"} class="relative" variant={"tedx"}>
                   Register
                   <span class="caveat absolute text-tedx-dark -right-5 -bottom-2 text-2xl underline -rotate-[20deg]">Early Bird</span>
                 </Button>
-              </a>
+              </a> */}
+              <h2 class="cal-sans font-bold text-tedx-red text-3xl">Coming soon</h2>
             </div>
           </div>
         </div>
