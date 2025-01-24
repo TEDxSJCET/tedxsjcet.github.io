@@ -30,7 +30,8 @@ export default function NavBar({
             x: target.offsetLeft - 4,
             duration: 0.5,
             ease: 'power2.out'
-        })
+        });
+        (document.querySelector(".pill>h2") as HTMLHeadingElement)!.innerText = target.querySelector("h2")?.innerText!;
     }
 
     return (
@@ -41,9 +42,9 @@ export default function NavBar({
             <div class="z-20" onClick={() => goToSection(1, 1)}>
                 <h2 class="p-2 md:p-3">About</h2>
             </div>
-            <a href="/register/index.html" class="z-20">
+            <div class="z-20" onClick={() => goToSection(3, 1)}>
                 <h2 class="p-2 md:p-3">Register</h2>
-            </a>
+            </div>
             <div class="pill h-fit w-fit bg-white rounded-full absolute">
                 <h2 class="p-2 md:p-3 opacity-0">Home</h2>
             </div>
