@@ -13,6 +13,7 @@ import speaker1 from "@/assets/annaroy.webp";
 import speaker2 from "@/assets/Advin.webp";
 import speaker3 from "@/assets/Dr_Bina_Thomas.webp";
 import speaker4 from "@/assets/Sabarinath.webp";
+import speaker5 from "@/assets/Neethu_George.webp";
 import { ScrollItem } from "@/components/ScrollSection";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -61,7 +62,7 @@ export const speakers = [
     name: "Neethu George",
     position: "Co-founder and Head of Strategy at Reel Tribe",
     quote: "Some inspiring quotes by this guest 5",
-    image: speaker1,
+    image: speaker5,
   },
 ];
 
