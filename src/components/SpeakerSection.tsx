@@ -65,7 +65,7 @@ export default function SpeakersSection() {
             perseverance to inspire, uplift, and empower you.
           </p>
         </div>
-        <div class="card-container w-full flex flex-wrap justify-center gap-4 max-w-screen-xl">
+        <div class="card-container w-full flex px-2 md:px-0 flex-wrap justify-center gap-4 max-w-screen-xl">
           {speakers.map((speaker, index) => (
             <div
               class="card flex flex-col bg-[#FBF7ED] text-left text-black p-1 transition-transform duration-500 w-28 md:w-60 gap-2 rounded-lg shadow-lg cal-sans"
@@ -78,7 +78,7 @@ export default function SpeakersSection() {
                 draggable={false}
               />
               <p class="text-xs sm:text-xl font-extrabold sm:font-semibold">{speaker.name}</p>
-              <p class="text-xs sm:text-sm italic text-gray-600">{speaker.position}</p>
+              <p class="text-[10px] sm:text-sm italic text-gray-600">{speaker.position}</p>
             </div>
           ))}
         </div>
