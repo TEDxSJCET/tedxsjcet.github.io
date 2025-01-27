@@ -101,11 +101,11 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
-    font-feature-settings:
-      "rlig" 1,
-      "calt" 1;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: "Cal Sans", system-ui, sans-serif;
   }
 }
 
@@ -150,5 +150,12 @@
 .caveat {
   font-family: "Caveat", serif;
   font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cal Sans';
+  src: url('/fonts/CalSans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
   font-style: normal;
 }
