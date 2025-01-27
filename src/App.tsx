@@ -29,7 +29,7 @@ const AnimatedSections = () => {
   const sections = createMemo(() => [
     { content: HeroSection },
     { content: AboutSection },
-    // { content: SpeakersSection },
+    { content: SpeakersSection },
     // ...speakers.map((speaker) => ({
     //   content: () => (
     //     <SpeakerDetail name={speaker.name} position={speaker.position} photo={speaker.image} quote={speaker.quote} />
@@ -134,7 +134,7 @@ const AnimatedSections = () => {
 
   return (
     <div class="h-screen bg-black text-white overflow-hidden">
-      {!showTedxLogo() && <NavBar goToSection={gotoSection}/>}
+      {!showTedxLogo() && <NavBar goToSection={gotoSection} />}
       {showTedxLogo() ? (
         <div class="h-full w-full top-0 fixed">
           <TedxLogo

@@ -9,8 +9,11 @@ import hero9 from "@/assets/hero9.webp";
 import hero10 from "@/assets/hero10.webp";
 import ocean from "@/assets/ocean.webp";
 
-import speaker1 from "@/assets/about2.webp";
-import speaker2 from "@/assets/about3.webp";
+import speaker1 from "@/assets/annaroy.webp";
+import speaker2 from "@/assets/Advin.webp";
+import speaker3 from "@/assets/Dr_Bina_Thomas.webp";
+import speaker4 from "@/assets/Sabarinath.webp";
+import speaker5 from "@/assets/Neethu_George.webp";
 import { ScrollItem } from "@/components/ScrollSection";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -18,48 +21,48 @@ import SpeakerSection from "@/components/SpeakerSection";
 import SpeakerDetail from "@/components/SpeakerDetail";
 
 export const HeroSectionData = {
-  heroImages: ['/hero1.webp', '/hero2.webp', '/hero7.webp'],
-  smallerImages: ['/hero3.webp', '/hero4.webp', '/hero8.webp'],
-  tedXImages: ['/hero5.webp', '/hero9.webp', '/hero10.webp'],
+  heroImages: ["/hero1.webp", "/hero2.webp", "/hero7.webp"],
+  smallerImages: ["/hero3.webp", "/hero4.webp", "/hero8.webp"],
+  tedXImages: ["/hero5.webp", "/hero9.webp", "/hero10.webp"],
   bottomTexts: ["Different Perspectives", "5 Speakers", "Join us"],
-  stableImage:'/ocean.webp'
+  stableImage: "/ocean.webp",
 };
 
 export const speakers = [
   {
     id: 1,
-    name: "Name of the Guest 1",
-    position: "Position 1",
+    name: "Anna Susan Roy",
+    position: "Miss Kerala 2021 finalist",
     quote: "Some inspiring quotes by this guest 1",
     image: speaker1,
   },
   {
     id: 2,
-    name: "Name of the Guest 2",
-    position: "Position 2",
+    name: "Advin Roy",
+    position: "Designer and Mentor",
     quote: "Some inspiring quotes by this guest 2",
     image: speaker2,
   },
   {
     id: 3,
-    name: "Name of the Guest 3",
-    position: "Position 3",
+    name: "Dr. Bina Thomas Tharakan",
+    position: "Archaeologist and Heritage Consultant",
     quote: "Some inspiring quotes by this guest 3",
-    image: speaker1,
+    image: speaker3,
   },
   {
     id: 4,
-    name: "Name of the Guest 4",
-    position: "Position 4",
+    name: "Sabarinath G Pillai",
+    position: "Cybersecurity Evangelist",
     quote: "Some inspiring quotes by this guest 4",
-    image: speaker2,
+    image: speaker4,
   },
   {
     id: 5,
-    name: "Name of the Guest 5",
-    position: "Position 5",
+    name: "Neethu George",
+    position: "Co-founder and Head of Strategy at Reel Tribe",
     quote: "Some inspiring quotes by this guest 5",
-    image: speaker1,
+    image: speaker5,
   },
 ];
 
