@@ -20,7 +20,7 @@ const textVariants = cva("", {
             h3: "font-bold text-2xl md:text-4xl",
             h4: "font-bold text-xs sm:text-xl",
             p: "text-balance text-md sm:text-xl md:text-2xl",
-            span: "text-lg",
+            span: "text-sm md:text-lg",
         },
         coloring: {
             white: "text-tedx-milky",

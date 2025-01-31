@@ -7,10 +7,10 @@ import { Button } from "./ui/button";
 export default function HeroSection() {
   return (
     <DottedGridBackground
-      gridSize={160}
+      gridSize={100}
       dashArray="15"
-      dotSize={3}
-      class="h-screen flex flex-col bg-white text-tedx-black"
+      dotSize={2}
+      class="h-screen flex flex-col overflow-hidden bg-white text-tedx-black"
     >
       <div class="h-1/4 flex items-center justify-center">
         <img src={logo} alt="TEDxSJCET" class="h-40 w-full object-contain" />

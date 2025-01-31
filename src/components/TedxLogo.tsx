@@ -39,7 +39,7 @@ const TedxLogo = ({ onComplete }: { onComplete: () => void }) => {
       const xBBox = xRef.getBBox();
 
       // Calculate new viewBox values to zoom into X while keeping it centered
-      const zoomScale = 0.5; // Adjust this value to control the zoom level (smaller = more zoom)
+      const zoomScale = 0.4; // Adjust this value to control the zoom level (smaller = more zoom)
       const newWidth = xBBox.width / zoomScale;
       const newHeight = xBBox.height / zoomScale;
       const newX = xBBox.x - (newWidth - xBBox.width) / 2;

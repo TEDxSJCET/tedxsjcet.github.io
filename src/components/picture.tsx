@@ -24,7 +24,7 @@ export const PhotoPic = ({ image, name, position, className }: X) => {
 
 export const SmallPhotoCard = ({ image, name, position, className }: X) => (
     <div
-        class={cn("card flex flex-col bg-tedx-milky shadow-2xl shadow-tedx-dark/20] md:p-4 p-2 transition-transform duration-500 w-28 md:w-60 gap-2 rounded-none  group", className)}
+        class={cn("flex flex-col bg-tedx-milky shadow-2xl shadow-tedx-dark/20] md:p-4 p-2 transition-transform duration-500 w-28 md:w-60 gap-2 rounded-none group", className)}
         style={{ "will-change": "transform, opacity" }}
     >
         <img
@@ -37,7 +37,7 @@ export const SmallPhotoCard = ({ image, name, position, className }: X) => (
             <Text coloring={"black"} size={"h4"} variant={"tedx"}>
                 {name}
             </Text>
-            <Text class="opacity-75 text-base/3 leading-3" coloring={"black"} size={"span"} variant={"tedx-sub"}>{position}</Text>
+            <Text class="opacity-75 leading-tight" coloring={"black"} size={"span"} variant={"tedx-sub"}>{position}</Text>
         </div>
     </div>
 )

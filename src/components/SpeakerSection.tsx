@@ -5,6 +5,7 @@ import DottedGridBackground from "./DottedGridBackground";
 import { speakers } from "@/lib/data";
 import { TextCombo } from "./header";
 import { SmallPhotoCard } from "./picture";
+import { cn } from "@/lib/utils";
 
 export default function SpeakersSection() {
   onMount(() => {
@@ -12,11 +13,11 @@ export default function SpeakersSection() {
   });
 
   createEffect(() => {
-    const cards = gsap.utils.toArray(".card") as HTMLElement[];
+    const cards = gsap.utils.toArray(".speakerCards") as HTMLElement[];
     const centerIndex = Math.floor(cards.length / 2);
 
     const animations = cards.map((card, index) => {
-      const rotation = index < centerIndex ? -15 : index > centerIndex ? 15 : 0;
+      const rotation = index < centerIndex ? -15 : index > centerIndex ? (15 + centerIndex - index) : 0;
       const translateY = index === centerIndex ? 0 : Math.abs(centerIndex - index) * 15;
 
       return gsap.fromTo(
@@ -46,14 +47,16 @@ export default function SpeakersSection() {
   });
 
   return (
-    <section class="min-h-screen relative container flex flex-col items-start justify-center gap-10 md:gap-20">
-      <h1 class="absolute font-bold text-tedx-red/40 inset-0 -z-10 text-[50rem] text-center pointer-events-none cal-sans blur-lg">
+    <section class="min-h-screen relative flex flex-col justify-center gap-10 md:gap-20 my-20">
+      <h1 class="absolute text-tedx-red/40 inset-0 text-[50rem] text-center pointer-events-none cal-sans blur-lg">
         X
       </h1>
-      <TextCombo theme="white" header="Speakers." sub="We present to you some of the most flamboyant and remarkable individuals who epitomize passion and perseverance to inspire, uplift, and empower you." />
-      <div class="w-full flex px-2 md:px-0 flex-wrap md:flex-nowrap justify-center gap-2 md:gap-5 max-w-screen-xl">
+      <div class="container">
+        <TextCombo theme="white" header="Speakers." sub="We present to you some of the most flamboyant and remarkable individuals who epitomize passion and perseverance to inspire, uplift, and empower you." />
+      </div>
+      <div class="flex flex-wrap justify-center gap-4">
         {speakers.map((speaker, index) => (
-          <SmallPhotoCard className={index === 2 ? "z-10" : "z-0"} {...speaker} />
+          <SmallPhotoCard className={cn("w-full speakerCards hover:z-20 group", index === 2 ? "z-10" : "z-0")} {...speaker} />
         ))}
       </div>
     </section>

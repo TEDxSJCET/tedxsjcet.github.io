@@ -30,7 +30,12 @@ const AboutSection: Component = () => {
   });
 
   return (
-    <DottedGridBackground gridSize={120} dotSize={3.5} class="h-screen bg-white" dashArray="8" lineColor="gray">
+    <DottedGridBackground
+      gridSize={100}
+      dashArray="15"
+      dotSize={2}
+      class="h-screen flex flex-col bg-white text-tedx-black"
+    >
       <div class="grid grid-cols-1 lg:grid-cols-2 h-full max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-16 z-10">
         <div class="flex flex-col justify-center h-full -space-y-8 p-3">
           <div class="grid grid-cols-2 gap-6 justify-center max-w-[80%] mx-auto">
@@ -51,12 +56,6 @@ const AboutSection: Component = () => {
               and social issues. Each TEDx event follows guidelines set by TED but has its own unique theme and
               speakers, making every event distinct and relevant to its specific audience.
             </p>
-            <div class="relative">
-              <h3 class="text-5xl md:text-6xl font-extrabold text-black">X</h3>
-              <h4 class="absolute inset-0 flex items-center justify-center text-tedx-red text-xl font-semibold">
-                Speak
-              </h4>
-            </div>
           </div>
         </div>
       </div>
