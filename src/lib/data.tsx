@@ -14,6 +14,7 @@ import speaker2 from "@/assets/Advin.webp";
 import speaker3 from "@/assets/Dr_Bina_Thomas.webp";
 import speaker4 from "@/assets/Sabarinath.webp";
 import speaker5 from "@/assets/Neethu_George.webp";
+import speaker6 from "@/assets/Anima.webp"
 import { ScrollItem } from "@/components/ScrollSection";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -64,6 +65,13 @@ export const speakers = [
     quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
     image: speaker5,
   },
+  {
+    id: 6,
+    name: "Amina Nijam",
+    position: "Actress and influencer",
+    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    image: speaker6
+  }
 ];
 
 export const verticalItems: ScrollItem[] = speakers.map((speaker) => ({
