@@ -54,7 +54,7 @@ export default function SpeakersSection() {
       <div class="container">
         <TextCombo theme="white" header="Speakers." sub="We present to you some of the most flamboyant and remarkable individuals who epitomize passion and perseverance to inspire, uplift, and empower you." />
       </div>
-      <div class="flex flex-wrap justify-center gap-4">
+      <div class="flex flex-wrap justify-center gap-2">
         {speakers.map((speaker, index) => (
           <SmallPhotoCard className={cn("w-full speakerCards hover:z-20 group", index === 2 ? "z-10" : "z-0")} {...speaker} />
         ))}
