@@ -1,3 +1,5 @@
+import type { JSX } from "solid-js"
+
 import hero1 from "@/assets/hero1.webp";
 import hero2 from "@/assets/hero2.webp";
 import hero7 from "@/assets/hero7.webp";
@@ -14,7 +16,7 @@ import speaker2 from "@/assets/Advin.webp";
 import speaker3 from "@/assets/Dr_Bina_Thomas.webp";
 import speaker4 from "@/assets/Sabarinath.webp";
 import speaker5 from "@/assets/Neethu_George.webp";
-import { ScrollItem } from "@/components/ScrollSection";
+import type { ScrollItem } from "@/components/ScrollSection";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SpeakerSection from "@/components/SpeakerSection";
@@ -28,52 +30,66 @@ export const HeroSectionData = {
   stableImage: "/ocean.webp",
 };
 
-export const speakers = [
+type Speaker = {
+  id: number;
+  name: string;
+  position: string;
+  quote: JSX.Element;
+  sub: JSX.Element;
+  image: string;
+};
+
+export const speakers: Speaker[] = [
   {
     id: 1,
     name: "Anna Susan Roy",
     position: "Miss Kerala 2021 finalist",
-    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    quote: <>Delivering <span class="text-tedx">Memorable & Talented Performances</span> in films and collaborations with top brands as actress.</>,
+    sub: "Rising star in fashion and entertainment.",
     image: speaker1,
   },
   {
     id: 2,
     name: "Advin Roy",
     position: "Designer at Google",
-    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    quote: <>Empowering next generation of designers through <span class="text-tedx">Thoughtful & Inclusive Design</span> in user-centric solutions </>,
+    sub: "Mentor & leading AI-powered product developer.",
     image: speaker2,
   },
   {
     id: 3,
     name: "Dr. Bina Thomas Tharakan",
     position: "Archaeologist and Heritage Consultant",
-    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    quote: <>A published author and columnist, passionate about promoting <span class="text-tedx">History and Heritage</span> awareness</>,
+    sub: "Founder Coordinator of Heritage Walk Trivandrum. PhD in Archaeology.",
     image: speaker3,
   },
   {
     id: 4,
     name: "Sabarinath G Pillai",
     position: "Cybersecurity Evangelist",
-    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    quote: <>Dedicated to <span class="text-tedx">Making the Digital World Safer</span> & more inclusive</>,
+    sub: "How small, unnoticed actions can lead to transformational change.",
     image: speaker4,
   },
   {
     id: 5,
     name: "Neethu George",
     position: "Co-founder and Head of Strategy at Reel Tribe",
-    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    quote: <>A creative force with expertise in <span class="text-tedx">Brand Building</span>, content curation & event planning.</>,
+    sub: "Bringing infectious energy & fresh perspectives.",
     image: speaker5,
   },
 ];
 
-export const verticalItems: ScrollItem[] = speakers.map((speaker) => ({
-  id: speaker.id,
-  title: speaker.name,
-  description: speaker.position,
-  content: () => (
-    <SpeakerDetail name={speaker.name} position={speaker.position} photo={speaker.image} quote={speaker.quote} />
-  ),
-}));
+// export const verticalItems: ScrollItem[] = speakers.map((speaker) => ({
+//   id: speaker.id,
+//   title: speaker.name,
+//   description: speaker.position,
+//   content: () => (
+//     <SpeakerDetail name={speaker.name} position={speaker.position} photo={speaker.image} quote={speaker.quote} />
+//   ),
+// }));
 
 export const horizontalItems: ScrollItem[] = [
   {

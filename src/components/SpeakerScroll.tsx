@@ -8,11 +8,11 @@ export default function QutesSection() {
       gridSize={100}
       dashArray="15"
       dotSize={2}
-      class="min-h-screen flex flex-col bg-white text-tedx-black"
+      class="min-h-screen bg-white text-tedx-black"
     >
-      <div class="container min-h-svh flex flex-col gap-20">
+      <div class="min-h-svh flex flex-col gap-32 md:gap-20">
         {speakers.map((speaker, index) => (
-          <SpeakerQuote position={index % 2 ? "left" : "right"} data={speaker} sub="some subheading">
+          <SpeakerQuote position={index % 2 ? "left" : "right"} data={speaker} sub={speaker.sub}>
             {speaker.quote}
           </SpeakerQuote>
         ))}

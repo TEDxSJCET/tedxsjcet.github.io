@@ -3,16 +3,18 @@ import gsap from "gsap";
 import DottedGridBackground from "./DottedGridBackground";
 
 import about from "@/assets/about.jpeg";
-import about2 from "@/assets/about2.jpeg";
-import about3 from "@/assets/about3.jpeg";
+import about1 from "@/assets/about1.webp";
+import about2 from "@/assets/about2.webp";
+import about3 from "@/assets/about3.webp";
 import about4 from "@/assets/about4.jpeg";
 
 const cardData = createMemo(() => [
-  { title: "Business", color: "bg-[#97AEBC]", textColor: "text-[#497689]", img: about2 },
-  { title: "Culture & History", color: "bg-[#090806]", textColor: "text-[#D3D3CB]", img: about3 },
+  { title: "History", color: "bg-[#090806]", textColor: "text-[#D3D3CB]", img: about3 },
+  { title: "Business", color: "bg-[#97AEBC]", textColor: "text-[#497689]", img: about1 },
+  { title: "Culture", color: "bg-[#090806]", textColor: "text-[#D3D3CB]", img: about3 },
   { title: "Education", color: "bg-[#C45D4E]", textColor: "text-[#D3D3CB]", img: about4 },
-  { title: "Technology", color: "bg-[#532901]", textColor: "text-[#CABDA8]", img: about2 },
-  { title: "Entertainment", color: "bg-[#C785A0]", textColor: "text-[#A75576]", img: about },
+  { title: "Technology", color: "bg-[#532901]", textColor: "text-[#CABDA8]", img: about },
+  { title: "Entertainment", color: "bg-[#C785A0]", textColor: "text-[#A75576]", img: about2 },
 ]);
 
 const AboutSection: Component = () => {
@@ -38,7 +40,7 @@ const AboutSection: Component = () => {
     >
       <div class="grid grid-cols-1 lg:grid-cols-2 h-full max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-16 z-10">
         <div class="flex flex-col justify-center h-full -space-y-8 p-3">
-          <div class="grid grid-cols-2 gap-6 justify-center max-w-[80%] mx-auto">
+          <div class="grid grid-cols-3 gap-6 justify-center">
             <For each={cardData().slice(3)}>{(card, index) => <Card {...card} index={index() + 3} />}</For>
           </div>
           <div class="grid grid-cols-3 gap-6">
@@ -80,7 +82,7 @@ function Card({
 }) {
   return (
     <div
-      class={`about-card ${color} rounded-lg shadow-md w-full aspect-auto h-full flex flex-col justify-between p-2`}
+      class={`about-card ${color} shadow-md w-full aspect-auto h-full flex flex-col justify-between p-2`}
       data-index={index}
     >
       <h3
@@ -91,7 +93,7 @@ function Card({
       <img
         src={img}
         alt={title}
-        class="h-3/5 w-full object-cover rounded-md shadow-sm aspect-square"
+        class="w-full object-cover rounded-md shadow-sm aspect-square"
         draggable={false}
       />
     </div>

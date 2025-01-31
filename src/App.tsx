@@ -8,6 +8,7 @@ import Register from "./components/Register";
 import QutesSection from "./components/SpeakerScroll";
 import SpeakersSection from "./components/SpeakerSection";
 import TedxLogo from "./components/TedxLogo";
+import { TailwindIndicator } from "./lib/tailwind";
 
 gsap.registerPlugin(Observer);
 
@@ -29,9 +30,10 @@ const AnimatedSections = () => {
           <HeroSection />
           <AboutSection />
           <SpeakersSection />
-          {/* <QutesSection /> */}
+          <QutesSection />
           <CoreTeam />
           <Register />
+          <TailwindIndicator/>
         </>
       )}
     </div>

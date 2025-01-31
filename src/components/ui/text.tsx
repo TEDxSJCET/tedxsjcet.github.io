@@ -16,8 +16,8 @@ const textVariants = cva("", {
         },
         size: {
             h1: "font-extrabold text-7xl md:text-9xl",
-            h2: "font-bold text-4xl capitalize md:text-6xl",
-            h3: "font-bold text-2xl md:text-4xl",
+            h2: "font-bold text-2xl md:text-4xl lg:text-5xl xl:text-6xl",
+            h3: "font-bold text-xl md:text-3xl",
             h4: "font-bold text-xs sm:text-xl",
             p: "text-balance text-md sm:text-xl md:text-2xl",
             span: "text-sm md:text-lg",
