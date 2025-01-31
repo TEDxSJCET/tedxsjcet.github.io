@@ -5,43 +5,43 @@ import DottedGridBackground from "./DottedGridBackground";
 import { speakers } from "@/lib/data";
 
 export default function SpeakersSection() {
-  onMount(() => {
-    gsap.registerPlugin(ScrollTrigger);
-  });
+  // onMount(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+  // });
 
-  createEffect(() => {
-    const cards = gsap.utils.toArray(".card") as HTMLElement[];
-    const centerIndex = Math.floor(cards.length / 2);
+  // createEffect(() => {
+  //   const cards = gsap.utils.toArray(".card") as HTMLElement[];
+  //   const centerIndex = Math.floor(cards.length / 2);
 
-    const animations = cards.map((card, index) => {
-      const rotation = index < centerIndex ? -15 : index > centerIndex ? 15 : 0;
-      const translateY = index === centerIndex ? 0 : Math.abs(centerIndex - index) * 15;
+  //   const animations = cards.map((card, index) => {
+  //     const rotation = index < centerIndex ? -15 : index > centerIndex ? 15 : 0;
+  //     const translateY = index === centerIndex ? 0 : Math.abs(centerIndex - index) * 15;
 
-      return gsap.fromTo(
-        card,
-        { opacity: 0, y: 50, scale: 0.9 },
-        {
-          opacity: 1,
-          y: -translateY,
-          scale: 1,
-          rotation: rotation,
-          duration: 0.3,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".card-container",
-            start: "top 70%",
-            end: "bottom 30%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
+  //     return gsap.fromTo(
+  //       card,
+  //       { opacity: 0, y: 50, scale: 0.9 },
+  //       {
+  //         opacity: 1,
+  //         y: -translateY,
+  //         scale: 1,
+  //         rotation: rotation,
+  //         duration: 0.3,
+  //         ease: "power3.out",
+  //         scrollTrigger: {
+  //           trigger: ".card-container",
+  //           start: "top 70%",
+  //           end: "bottom 30%",
+  //           toggleActions: "play none none reverse",
+  //         },
+  //       }
+  //     );
+  //   });
 
-    onCleanup(() => {
-      animations.forEach((animation) => animation.kill());
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    });
-  });
+  //   onCleanup(() => {
+  //     animations.forEach((animation) => animation.kill());
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   });
+  // });
 
   return (
     <DottedGridBackground
