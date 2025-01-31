@@ -3,10 +3,20 @@ import { gsap } from "gsap";
 import org1 from "../assets/org1.svg";
 import org2 from "../assets/org2.svg";
 import org3 from "../assets/org3.svg";
-import DottedGridBackground from "./DottedGridBackground";
 import { TextCombo } from "./header";
 
-const List = [org1, org2, org3];
+const List = [
+  {
+    image: org1,
+    link: ""
+  }, {
+    image: org2,
+    link: ""
+  }, {
+    image: org3,
+    link: ""
+  }
+];
 
 const CoreTeam = () => {
   let containerRef: HTMLDivElement | undefined;
@@ -24,23 +34,28 @@ const CoreTeam = () => {
   });
 
   return (
-    <div ref={containerRef!} class="min-h-screen relative container flex flex-col items-start justify-center gap-10">
+    <section ref={containerRef!} class="min-h-screen relative container flex flex-col items-start justify-center gap-10">
+      <h1 class="absolute text-tedx-red/40 inset-0 text-[50rem] text-center pointer-events-none cal-sans blur-lg">
+        !
+      </h1>
       <TextCombo theme="white" header="Organizer." sub="The team behind the scene" />
-      <div class="flex flex-wrap ms:gap-4 justify-center items-center mx-auto">
+      <div class="flex flex-wrap ms:gap-4 justify-center items-center mx-auto z-0">
         <For each={List}>
           {(item, index) => (
-            <div class="flex-1 max-w-[50px] min-w-[200px] sm:max-w-[300px]">
-              <img
-                ref={(el) => (imageRefs[index()] = el)}
-                src={item}
-                alt={`Organizer ${index() + 1}`}
-                class="w-full h-auto aspect-square sm:aspect-auto object-contain sm:object-cover shadow-lg hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+            <a href={item.link}>
+              <div class="flex-1 max-w-[50px] min-w-[200px] sm:max-w-[300px]">
+                <img
+                  ref={(el) => (imageRefs[index()] = el)}
+                  src={item.image}
+                  alt={`Organizer ${index() + 1}`}
+                  class="w-full h-auto aspect-square sm:aspect-auto object-contain sm:object-cover shadow-lg hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </a>
           )}
         </For>
       </div>
-    </div>
+    </section>
   );
 };
 

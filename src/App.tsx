@@ -9,6 +9,8 @@ import QutesSection from "./components/SpeakerScroll";
 import SpeakersSection from "./components/SpeakerSection";
 import TedxLogo from "./components/TedxLogo";
 import { TailwindIndicator } from "./lib/tailwind";
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
 
 gsap.registerPlugin(Observer);
 
@@ -33,7 +35,9 @@ const AnimatedSections = () => {
           <QutesSection />
           <CoreTeam />
           <Register />
-          <TailwindIndicator/>
+          {/* <NavBar /> */}
+          <Footer />
+          <TailwindIndicator />
         </>
       )}
     </div>

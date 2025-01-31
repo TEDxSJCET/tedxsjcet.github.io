@@ -47,17 +47,15 @@ export default function SpeakersSection() {
       <h1 class="absolute text-tedx-red/40 inset-0 text-[50rem] text-center pointer-events-none cal-sans blur-lg">
         X
       </h1>
-      <div style={{
-        
-      }} class="container">
+      <div class="container">
         <TextCombo theme="white" header="Speakers." sub="We present to you some of the most flamboyant and remarkable individuals who epitomize passion and perseverance to inspire, uplift, and empower you." />
       </div>
       <div class="flex flex-wrap justify-center gap-4">
         {speakers.map((speaker, index) => {
-          const rotation = index < centerIndex ? -15 : index > centerIndex ? (15 + centerIndex - index) : 0;
+          const rotation = index < centerIndex ? -15 : index >= centerIndex ? (15 + centerIndex - index) : 0;
           return (<SmallPhotoCard style={{
             rotate: `${rotation}deg`
-          }} className={cn("w-64 speakerCards hover:z-20 group", index === 2 ? "z-10" : "z-0")} {...speaker} />)
+          }} className={cn("w-64 speakerCards hover:z-20 group", index === 3 ? "z-10" : "z-0")} {...speaker} />)
         }
         )}
       </div>
