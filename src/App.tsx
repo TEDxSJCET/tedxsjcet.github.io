@@ -11,6 +11,7 @@ import Register from "./components/Register";
 import CoreTeam from "./components/CoreTeam";
 import TedxLogo from "./components/TedxLogo";
 import Lenis from "lenis";
+import Home from "./components";
 
 gsap.registerPlugin(Observer);
 
@@ -110,68 +111,75 @@ const AnimatedSections = () => {
     lenis?.scrollTo(sectionRefs[index], { duration: 1.2, lerp: 0.1 });
   };
 
-  createEffect(() => {
-    gsap.set(outerRefs, { yPercent: 100 });
-    gsap.set(innerRefs, { yPercent: -100 });
+  // createEffect(() => {
+  //   gsap.set(outerRefs, { yPercent: 100 });
+  //   gsap.set(innerRefs, { yPercent: -100 });
 
-    initLenis();
+  //   initLenis();
 
-    const observer = Observer.create({
-      type: "wheel,touch,pointer",
-      wheelSpeed: -1,
-      onDown: () => !showTedxLogo() && gotoSection(currentIndex() - 1, -1),
-      onUp: () => !showTedxLogo() && gotoSection(currentIndex() + 1, 1),
-      tolerance: 10,
-      preventDefault: true,
-    });
+  //   const observer = Observer.create({
+  //     type: "wheel,touch,pointer",
+  //     wheelSpeed: -1,
+  //     onDown: () => !showTedxLogo() && gotoSection(currentIndex() - 1, -1),
+  //     onUp: () => !showTedxLogo() && gotoSection(currentIndex() + 1, 1),
+  //     tolerance: 10,
+  //     preventDefault: true,
+  //   });
 
-    onCleanup(() => {
-      gsap.killTweensOf("*");
-      observer.kill();
-      destroyLenis();
-    });
-  });
+  //   onCleanup(() => {
+  //     gsap.killTweensOf("*");
+  //     observer.kill();
+  //     destroyLenis();
+  //   });
+  // });
 
   return (
-    <div class="h-screen bg-black text-white overflow-hidden">
-      {!showTedxLogo() && <NavBar goToSection={gotoSection} />}
+    <div class="h-screen w-screen bg-black text-white overflow-y-auto overflow-x-hidden">
+      {/* {!showTedxLogo() && <NavBar goToSection={gotoSection} />} */}
       {showTedxLogo() ? (
         <div class="h-full w-full top-0 fixed">
           <TedxLogo
             onComplete={() => {
               setShowTedxLogo(false);
-              gotoSection(0, 1);
+              // gotoSection(0, 1);
             }}
           />
         </div>
       ) : (
-        <div id="smooth-wrapper">
-          <div id="smooth-content">
-            <For each={sections()}>
-              {(section, index) => (
-                <section
-                  ref={(el) => (sectionRefs[index()] = el)}
-                  class="h-screen w-full top-0 fixed invisible"
-                  style={{ "will-change": "transform, opacity" }}
-                >
-                  <div ref={(el) => (outerRefs[index()] = el)} class="w-full h-full overflow-y-hidden">
-                    <div ref={(el) => (innerRefs[index()] = el)} class="w-full h-full overflow-y-hidden">
-                      <div
-                        ref={(el) => (bgRefs[index()] = el)}
-                        class="flex absolute h-full w-full top-0 bg-cover bg-center bg-black"
-                        style={{ "will-change": "transform" }}
-                      >
-                        <div ref={(el) => (headingRefs[index()] = el)} class="w-full">
-                          <section.content />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              )}
-            </For>
-          </div>
-        </div>
+        // <div id="smooth-wrapper">
+        //   <div id="smooth-content">
+        //     <For each={sections()}>
+        //       {(section, index) => (
+        //         <section
+        //           ref={(el) => (sectionRefs[index()] = el)}
+        //           class="h-screen w-full top-0 fixed invisible"
+        //           style={{ "will-change": "transform, opacity" }}
+        //         >
+        //           <div ref={(el) => (outerRefs[index()] = el)} class="w-full h-full overflow-y-hidden">
+        //             <div ref={(el) => (innerRefs[index()] = el)} class="w-full h-full overflow-y-hidden">
+        //               <div
+        //                 ref={(el) => (bgRefs[index()] = el)}
+        //                 class="flex absolute h-full w-full top-0 bg-cover bg-center bg-black"
+        //                 style={{ "will-change": "transform" }}
+        //               >
+        //                 <div ref={(el) => (headingRefs[index()] = el)} class="w-full">
+        //                   <section.content />
+        //                 </div>
+        //               </div>
+        //             </div>
+        //           </div>
+        //         </section>
+        //       )}
+        //     </For>
+        //   </div>
+        // </div>
+        <>
+        <HeroSection/>
+        <AboutSection/>
+        <SpeakersSection/>
+        <CoreTeam/>
+        <Register/>
+        </>
       )}
     </div>
   );
