@@ -2,13 +2,14 @@
 import type { JSX } from "solid-js";
 import { PhotoPic } from "./picture";
 import { Text } from "./ui/text";
+import { cn } from "@/lib/utils";
 
-export const SpeakerQuote = ({ children, sub }: { children: JSX.Element, sub: string }) => {
+export const SpeakerQuote = ({ children, data, sub, position = "left" }: { children: JSX.Element, sub: string, data: Parameters<typeof PhotoPic>[0], position: "left" | "right" }) => {
     return (
-        <div class="flex flex-row gap-10">
-            <PhotoPic className="-rotate-12" name="Rajat Sandeep" position="CTO Startup Bootcamp" url="https://github.com/rajatsandeepsen.png" />
-            <div class="w-3/4">
-                <Text coloring={"black"} size={"p"} variant={"tedx-sub"}>{sub}</Text>
+        <div class={cn("flex flex-col gap-10 md:gap-20 items-center w-full justify-center", position === "left" ? "md:flex-row-reverse" : "md:flex-row")}>
+            <PhotoPic className={cn("w-64 md:w-96", position === "right" ? "md:ms-20 -rotate-12" : "md:me-20 rotate-12")} {...data} />
+            <div class={cn("w-full md:w-3/4", position === "left" ? "text-end" : "text-start")}>
+                <Text class="opacity-75" coloring={"black"} size={"h3"} variant={"tedx-sub"}>{sub}</Text>
                 <br />
                 <Text coloring={"black"} size={"h2"} variant={"tedx"}>
                     <q>{children}</q>
@@ -19,7 +20,7 @@ export const SpeakerQuote = ({ children, sub }: { children: JSX.Element, sub: st
                         <Linkedin />
                         <Youtube /> */}
                     </div>
-                    <Signature />
+                    {/* <Signature /> */}
                 </div>
             </div>
         </div>

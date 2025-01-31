@@ -16,9 +16,10 @@ const textVariants = cva("", {
         },
         size: {
             h1: "font-extrabold text-7xl md:text-9xl",
-            h2: "text-center font-bold text-4xl capitalize md:text-6xl",
-            h3: "text-center font-bold text-2xl md:text-4xl",
-            p: "text-balance text-xl md:text-2xl",
+            h2: "font-bold text-4xl capitalize md:text-6xl",
+            h3: "font-bold text-2xl md:text-4xl",
+            h4: "font-bold text-xs sm:text-xl",
+            p: "text-balance text-md sm:text-xl md:text-2xl",
             span: "text-lg",
         },
         coloring: {
@@ -42,7 +43,7 @@ const Text = <T extends ValidComponent = "h1">(props: PolymorphicProps<T, TextPr
     const [local, others] = splitProps(props as TextProps, ["variant", "size", "class", "coloring"])
     const slot = local.size ?? "h1";
     return (
-        <Dynamic component="slot" 
+        <Dynamic component={slot}
             class={cn(
                 textVariants({
                     variant: local.variant,

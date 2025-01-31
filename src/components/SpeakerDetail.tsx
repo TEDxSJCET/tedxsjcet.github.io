@@ -40,7 +40,7 @@ const SpeakerDetail: Component<SpeakerDetailProps> = (props) => {
     >
       <div class="speaker-container h-full grid grid-cols-1 md:grid-cols-2 items-center justify-center py-16 px-8 md:px-20 text-white">
         <div class="relative mx-auto">
-          <div class="bg-white text-black rounded-lg shadow-lg w-60 md:w-96 p-2 transform -rotate-12">
+          <div class="bg-white text-black shadow-lg w-60 md:w-96 p-5 transform -rotate-12">
             <img
               src={props.photo}
               alt={`${props.name}'s photo`}

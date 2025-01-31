@@ -5,12 +5,13 @@ import HeroSection from "./components/HeroSection";
 import NavBar from "./components/NavBar";
 import AboutSection from "./components/AboutSection";
 import SpeakersSection from "./components/SpeakerSection";
-import { speakers } from "./lib/data";
-import SpeakerDetail from "./components/SpeakerDetail";
+// import { speakers } from "./lib/data";
+// import SpeakerDetail from "./components/SpeakerDetail";
 import Register from "./components/Register";
 import CoreTeam from "./components/CoreTeam";
 import TedxLogo from "./components/TedxLogo";
 import Lenis from "lenis";
+import QutesSection from "./components/SpeakerScroll";
 
 gsap.registerPlugin(Observer);
 
@@ -30,6 +31,7 @@ const AnimatedSections = () => {
     { content: HeroSection },
     { content: AboutSection },
     { content: SpeakersSection },
+    { content: QutesSection },
     // ...speakers.map((speaker) => ({
     //   content: () => (
     //     <SpeakerDetail name={speaker.name} position={speaker.position} photo={speaker.image} quote={speaker.quote} />
