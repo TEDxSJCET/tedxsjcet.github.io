@@ -42,7 +42,7 @@ export default function NavBar({
             <div class="z-20" onClick={() => goToSection(1, 1)}>
                 <h2 class="p-2 md:p-3">About</h2>
             </div>
-            <div class="z-20" onClick={() => goToSection(3, 1)}>
+            <div class="z-20" onClick={() => goToSection(4, 1)}>
                 <h2 class="p-2 md:p-3">Register</h2>
             </div>
             <div class="pill h-fit w-fit bg-white rounded-full absolute">

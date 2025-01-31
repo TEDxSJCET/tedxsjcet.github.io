@@ -1,3 +1,5 @@
+![tedxsjcet](https://github.com/user-attachments/assets/2556ce78-b043-4864-b96b-262905e328cc)
+
 ## Usage
 
 Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
