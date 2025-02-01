@@ -40,7 +40,7 @@ export default function HeroSection() {
             <div class="relative">
               <a
                 id="register"
-                href="/register/index.html">
+                href="/register/">
                 <Button size={"lg"} class="relative px-4" variant={"tedx"}>
                   <img src={makemypass} class="w-12" alt="makemypass logo" />
                   Register Now
