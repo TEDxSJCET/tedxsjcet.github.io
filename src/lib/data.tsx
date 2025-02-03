@@ -13,8 +13,9 @@ import speaker1 from "@/assets/annaroy.webp";
 import speaker2 from "@/assets/Advin.webp";
 import speaker3 from "@/assets/Dr_Bina_Thomas.webp";
 import speaker4 from "@/assets/Sabarinath.webp";
-import speaker5 from "@/assets/Neethu_George.webp";
+// import speaker5 from "@/assets/Neethu_George.webp";
 import speaker6 from "@/assets/Anima.webp"
+import speaker7 from "@/assets/narayan.png"
 import { ScrollItem } from "@/components/ScrollSection";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -58,19 +59,26 @@ export const speakers = [
     quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
     image: speaker4,
   },
+  // {
+  //   id: 5,
+  //   name: "Neethu George",
+  //   position: "Co-founder and Head of Strategy at Reel Tribe",
+  //   quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+  //   image: speaker5,
+  // },
   {
     id: 5,
-    name: "Neethu George",
-    position: "Co-founder and Head of Strategy at Reel Tribe",
-    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
-    image: speaker5,
-  },
-  {
-    id: 6,
     name: "Amina Nijam",
     position: "Actress and influencer",
     quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
     image: speaker6
+  },
+  {
+    id: 6,
+    name: "Vishnu Narayan B",
+    position: "Head-Talent Development, Kerala Region TCS",
+    qoute: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    image: speaker7
   }
 ];
 
