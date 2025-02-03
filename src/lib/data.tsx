@@ -15,9 +15,10 @@ import speaker1 from "@/assets/annaroy.webp";
 import speaker2 from "@/assets/Advin.webp";
 import speaker3 from "@/assets/Dr_Bina_Thomas.webp";
 import speaker4 from "@/assets/Sabarinath.webp";
-import speaker5 from "@/assets/Neethu_George.webp";
+// import speaker5 from "@/assets/Neethu_George.webp";
 import speaker6 from "@/assets/Anima.webp"
-import type { ScrollItem } from "@/components/ScrollSection";
+import speaker7 from "@/assets/narayan.png"
+import { ScrollItem } from "@/components/ScrollSection";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SpeakerSection from "@/components/SpeakerSection";
@@ -73,22 +74,29 @@ export const speakers: Speaker[] = [
     sub: "How small, unnoticed actions can lead to transformational change.",
     image: speaker4,
   },
+  // {
+  //   id: 5,
+  //   name: "Neethu George",
+  //   position: "Co-founder and Head of Strategy at Reel Tribe",
+  //   quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+  //   image: speaker5,
+  // },
   {
     id: 5,
-    name: "Neethu George",
-    position: "Co-founder and Head of Strategy at Reel Tribe",
-    quote: <>A creative force with <span class="underline decoration-tedx-red decoration-dashed">expertise</span> in <span class="text-tedx">Brand Building</span>, content curation & event planning.</>,
-    sub: "Bringing infectious energy & fresh perspectives.",
-    image: speaker5,
-  },
-  {
-    id: 6,
     name: "Amina Nijam",
     position: "Actress and influencer",
     quote: <>Passionate and dedicated to <span class="text-tedx">Inspire Through Movies</span><br/> <span class="underline decoration-tedx-red decoration-dashed">Turbo</span>, <span class="underline decoration-tedx-red decoration-dashed">Anjaam Pathiraa</span> and <span class="underline decoration-tedx-red decoration-dashed">Nayika Nayakan</span></>,
     sub: "A shining star in the entertainment industry!",
     image: speaker6
-  }
+  },
+  {
+    "id": 6,
+    "name": "Vishnu Narayan",
+    "position": "Head-Talent Development, Kerala Region TCS",
+    "quote": <>Passionate about <span class="text-tedx">mentoring, coaching</span>, and fostering <span class="text-tedx">positive change</span></>,
+    "sub": "A leader shaping talent and transformation!",
+    "image": speaker7
+  }  
 ];
 
 // export const verticalItems: ScrollItem[] = speakers.map((speaker) => ({
