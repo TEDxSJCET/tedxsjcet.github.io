@@ -4,12 +4,14 @@ import { PhotoPic } from "./picture";
 import { Text } from "./ui/text";
 import { cn } from "@/lib/utils";
 
-export const SpeakerQuote = ({ children, data, sub, position = "left" }: { children: JSX.Element, sub: string, data: Parameters<typeof PhotoPic>[0], position: "left" | "right" }) => {
+export const SpeakerQuote = ({ children, data, sub, position = "left", className }: {
+    children: JSX.Element, className?: string, sub: string, data: Parameters<typeof PhotoPic>[0], position: "left" | "right"
+}) => {
     return (
-        <div class={cn("flex flex-col gap-10 md:gap-20 items-center w-full justify-center", position === "left" ? "md:flex-row-reverse" : "md:flex-row")}>
-            <PhotoPic className={cn("w-64 md:w-96", position === "right" ? "md:ms-20 -rotate-12" : "md:me-20 rotate-12")} {...data} />
-            <div class={cn("w-full md:w-3/4", position === "left" ? "text-end" : "text-start")}>
-                <Text class="opacity-75" coloring={"black"} size={"h3"} variant={"tedx-sub"}>{sub}</Text>
+        <div class={cn("flex flex-col gap-10 md:gap-20 group items-center w-full justify-center", position === "left" ? "md:flex-row-reverse" : "md:flex-row", className)}>
+            <PhotoPic className={cn("w-64 md:w-96 group-hover:scale-105 transition-all duration-500", position === "right" ? "md:ms-20 -rotate-12 group-hover:-rotate-6" : "md:me-20 rotate-12 group-hover:rotate-6")} {...data} />
+            <div class={cn("w-full md:w-3/4 lg:w-3/5 px-3 md:px-0 flex flex-col gap-3", position === "left" ? "items-end text-end" : "items-start text-start")}>
+                <Text class="opacity-75 w-8/12" coloring={"black"} size={"h3"} variant={"tedx-sub"}>{sub}</Text>
                 <br />
                 <Text coloring={"black"} size={"h2"} variant={"tedx"}>
                     <q>{children}</q>

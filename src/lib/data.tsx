@@ -1,3 +1,5 @@
+import type { JSX } from "solid-js"
+
 import hero1 from "@/assets/hero1.webp";
 import hero2 from "@/assets/hero2.webp";
 import hero7 from "@/assets/hero7.webp";
@@ -30,33 +32,46 @@ export const HeroSectionData = {
   stableImage: "/ocean.webp",
 };
 
-export const speakers = [
+type Speaker = {
+  id: number;
+  name: string;
+  position: string;
+  quote: JSX.Element;
+  sub: JSX.Element;
+  image: string;
+};
+
+export const speakers: Speaker[] = [
   {
     id: 1,
     name: "Anna Susan Roy",
     position: "Miss Kerala 2021 finalist",
-    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    quote: <>Delivering <span class="text-tedx">Memorable & Talented Performances</span> in films and collaborations with top brands as <span class="underline decoration-tedx-red decoration-dashed">actress.</span></>,
+    sub: "Rising star in fashion and entertainment.",
     image: speaker1,
   },
   {
     id: 2,
     name: "Advin Roy",
     position: "Designer at Google",
-    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    quote: <>Empowering next generation of designers through <span class="text-tedx">Thoughtful & Inclusive Design</span> in <span class="underline decoration-tedx-red decoration-dashed">user-centric solutions</span> </>,
+    sub: "Mentor & leading AI-powered product developer.",
     image: speaker2,
   },
   {
     id: 3,
     name: "Dr. Bina Thomas Tharakan",
     position: "Archaeologist and Heritage Consultant",
-    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    quote: <>A published author and columnist, <span class="underline decoration-tedx-red decoration-dashed">passionate</span> about promoting <span class="text-tedx">History and Heritage</span> awareness</>,
+    sub: "Founder Coordinator of Heritage Walk Trivandrum. PhD in Archaeology.",
     image: speaker3,
   },
   {
     id: 4,
     name: "Sabarinath G Pillai",
     position: "Cybersecurity Evangelist",
-    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    quote: <>Dedicated to <span class="text-tedx">Making the Digital World Safer</span> & more <span class="underline decoration-tedx-red decoration-dashed">inclusive</span></>,
+    sub: "How small, unnoticed actions can lead to transformational change.",
     image: speaker4,
   },
   // {
@@ -70,26 +85,28 @@ export const speakers = [
     id: 5,
     name: "Amina Nijam",
     position: "Actress and influencer",
-    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    quote: <>Passionate and dedicated to <span class="text-tedx">Inspire Through Movies</span><br/> <span class="underline decoration-tedx-red decoration-dashed">Turbo</span>, <span class="underline decoration-tedx-red decoration-dashed">Anjaam Pathiraa</span> and <span class="underline decoration-tedx-red decoration-dashed">Nayika Nayakan</span></>,
+    sub: "A shining star in the entertainment industry!",
     image: speaker6
   },
   {
     id: 6,
     name: "Vishnu Narayan B",
     position: "Head-Talent Development, Kerala Region TCS",
-    qoute: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
+    sub: "",
     image: speaker7
   }
 ];
 
-export const verticalItems: ScrollItem[] = speakers.map((speaker) => ({
-  id: speaker.id,
-  title: speaker.name,
-  description: speaker.position,
-  content: () => (
-    <SpeakerDetail name={speaker.name} position={speaker.position} photo={speaker.image} quote={speaker.quote} />
-  ),
-}));
+// export const verticalItems: ScrollItem[] = speakers.map((speaker) => ({
+//   id: speaker.id,
+//   title: speaker.name,
+//   description: speaker.position,
+//   content: () => (
+//     <SpeakerDetail name={speaker.name} position={speaker.position} photo={speaker.image} quote={speaker.quote} />
+//   ),
+// }));
 
 export const horizontalItems: ScrollItem[] = [
   {
