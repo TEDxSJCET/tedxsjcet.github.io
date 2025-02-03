@@ -90,13 +90,13 @@ export const speakers: Speaker[] = [
     image: speaker6
   },
   {
-    id: 6,
-    name: "Vishnu Narayan B",
-    position: "Head-Talent Development, Kerala Region TCS",
-    quote: <>Some annoying <span class="text-tedx">philosophical</span> quotes by this guest</>,
-    sub: "",
-    image: speaker7
-  }
+    "id": 6,
+    "name": "Vishnu Narayan",
+    "position": "Head-Talent Development, Kerala Region TCS",
+    "quote": <>Passionate about <span class="text-tedx">mentoring, coaching</span>, and fostering <span class="text-tedx">positive change</span></>,
+    "sub": "A leader shaping talent and transformation!",
+    "image": speaker7
+  }  
 ];
 
 // export const verticalItems: ScrollItem[] = speakers.map((speaker) => ({
