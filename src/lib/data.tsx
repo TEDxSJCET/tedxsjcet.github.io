@@ -28,7 +28,7 @@ export const HeroSectionData = {
   heroImages: ["/hero1.webp", "/hero2.webp", "/hero7.webp"],
   smallerImages: ["/hero3.webp", "/hero4.webp", "/hero8.webp"],
   tedXImages: ["/hero5.webp", "/hero9.webp", "/hero10.webp"],
-  bottomTexts: ["Different Perspectives", "5 Speakers", "Join us"],
+  bottomTexts: ["5 Speakers", "Join us", "Different Perspectives",],
   stableImage: "/ocean.webp",
 };
 
