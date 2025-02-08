@@ -43,8 +43,8 @@ export default function HeroSection() {
                 href="/register/">
                 <Button size={"lg"} class="relative px-4" variant={"tedx"}>
                   <img src={makemypass} class="w-12" alt="makemypass logo" />
-                  Register Now
-                  <span class="caveat absolute text-tedx-dark -right-5 -bottom-2 text-2xl underline -rotate-[20deg]">Closing Soon</span>
+                  Registration Closed
+                  <span class="caveat absolute text-tedx-dark -right-5 -bottom-2 text-2xl underline -rotate-[20deg]">08-02-2025</span>
                 </Button>
               </a>
             </div>
