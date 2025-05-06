@@ -16,6 +16,13 @@ gsap.registerPlugin(Observer);
 
 const AnimatedSections = () => {
   const [showTedxLogo, setShowTedxLogo] = createSignal(true);
+  const path = window.location.pathname;
+
+  console.log(path);
+
+  if(path === "/sabarinath"){
+    window.location.href = "https://youtu.be/TDCajX39uXM?si=Se6ZC0gk_ODst2n1"
+  }
 
   return (
     <div class="h-screen w-screen bg-black text-white overflow-y-auto overflow-x-hidden">
