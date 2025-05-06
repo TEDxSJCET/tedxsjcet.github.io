@@ -16,12 +16,12 @@ gsap.registerPlugin(Observer);
 
 const AnimatedSections = () => {
   const [showTedxLogo, setShowTedxLogo] = createSignal(true);
-  const path = window.location.pathname;
+  const search = new URLSearchParams(window.location.search)
 
-  console.log(path);
-
-  if(path === "/sabarinath"){
-    window.location.href = "https://youtu.be/TDCajX39uXM?si=Se6ZC0gk_ODst2n1"
+  switch(search.get("speaker")){
+    case "sabarinath":
+      window.location.href = "https://youtu.be/TDCajX39uXM?si=Se6ZC0gk_ODst2n1";
+      break;
   }
 
   return (
