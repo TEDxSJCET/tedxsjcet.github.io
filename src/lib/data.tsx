@@ -60,7 +60,7 @@ export const speakers: Speaker[] = [
   {
     id: 3,
     name: "Pranav Sasidharan",
-    position: "Director, Writer & Producer",
+    position: "Filmmaker, Actor, Producer & Movement Artist",
     quote: <>Creating <span class="text-tedx">Iconic Music Videos & Live Concerts</span> from Kerala to <span class="underline decoration-tedx-red decoration-dashed">Cannes.</span></>,
     sub: "Director of Ballaatha Jaathi, a Rolling Stone India Top 10 Music Video of 2024.",
     image: speaker5,
