@@ -34,7 +34,7 @@ const CoreTeam = () => {
   });
 
   return (
-    <section ref={containerRef!} class="min-h-screen relative container flex flex-col items-start justify-center gap-10">
+    <section ref={containerRef!} class="min-h-screen relative container flex flex-col items-start justify-center gap-10  pointer-events-none">
       <h1 class="absolute text-tedx-red/40 inset-0 text-[50rem] text-center pointer-events-none cal-sans blur-lg">
         !
       </h1>
@@ -42,7 +42,7 @@ const CoreTeam = () => {
       <div class="flex w-full flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center mx-auto z-0">
         <For each={List}>
           {(item, index) => (
-            <a href={item.link} class="w-3/5 sm:w-1/3">
+            <a  class="w-3/5 sm:w-1/3">
               <div
                 class={`mx-auto w-full max-w-[300px] ${
                   index() === 0 ? "-rotate-6" : index() === 2 ? "rotate-6" : ""
