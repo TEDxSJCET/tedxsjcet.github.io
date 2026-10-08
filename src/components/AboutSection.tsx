@@ -47,7 +47,7 @@ const AboutSection: Component = () => {
           </div>
         </div>
         <div class="flex flex-col justify-center h-full">
-          <TextCombo className="text-end " theme="black" header="What is Ted X?" sub="Unlike TED itself, which hosts annual global conferences, TEDx events are local and community-driven,
+          <TextCombo className="text-end " theme="black" header="What is TEDx?" sub="Unlike TED itself, which hosts annual global conferences, TEDx events are local and community-driven,
             allowing for a wide range of topics, from technology and entertainment to education, personal development,
             and social issues. Each TEDx event follows guidelines set by TED but has its own unique theme and
             speakers, making every event distinct and relevant to its specific audience." />
