@@ -17,7 +17,7 @@ export default function HeroSection() {
         <img src={sjcet} alt="TEDxSJCET" class="h-40 w-full object-contain" />
       </div>
       <div class="relative h-full w-full flex items-center justify-center">
-        <div class="absolute pointer-events-none inset-0 bg-gradient-to-t from-white to-white/50 z-10" />
+        <div class="absolute inset-0 bg-gradient-to-t from-white to-white/50 z-10" />
         <img
           src={clg}
           alt="College"
@@ -40,7 +40,7 @@ export default function HeroSection() {
             <div class="relative">
               <a
                 id="register"
-               >
+                >
                 <Button size={"lg"} class="relative px-4" variant={"tedx"}>
                   <img src={makemypass} class="w-12" alt="makemypass logo" />
                   Registration Closed
