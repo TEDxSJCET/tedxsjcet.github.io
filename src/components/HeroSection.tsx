@@ -6,6 +6,7 @@ import { HeroSectionData } from "@/lib/data";
 const HeroSection: Component = () => {
   const [activeIndex, setActiveIndex] = createSignal(0);
   const { bottomTexts, heroImages, smallerImages, stableImage, tedXImages } = HeroSectionData;
+  let bottomTextRef: HTMLHeadingElement | undefined;
 
   createEffect(() => {
     const interval = setInterval(() => {
@@ -17,10 +18,21 @@ const HeroSection: Component = () => {
 
   createEffect(() => {
     gsap.fromTo(
-      ".hero-image, .tedx-image, .bottom-text, .smaller-image",
+      ".hero-image, .tedx-image, .smaller-image",
       { opacity: 0 },
       { opacity: 1, duration: 1, stagger: 0.2, ease: "power2.inOut" }
     );
+  });
+
+  createEffect(() => {
+    activeIndex();
+    if (bottomTextRef) {
+      gsap.fromTo(
+        bottomTextRef,
+        { opacity: 0 },
+        { opacity: 1, duration: 1, ease: "power2.inOut" }
+      );
+    }
   });
 
   return (
@@ -68,31 +80,20 @@ const HeroSection: Component = () => {
           <div class="relative flex w-1/2 bg-slate-700 justify-center items-center text-white">
             <img src={stableImage} class="ocean absolute w-full h-full object-cover" alt="Ocean" />
             <h1 class="-rotate-90 w-fit h-fit text-3xl md:text-4xl font-bold">
-              Excellence
+              Before
               <br />
-              beyond notice
+              the Record
             </h1>
           </div>
         </div>
         <div class="h-1/3 flex flex-row">
           <div class="relative flex w-1/2 bg-white justify-center items-center">
-            <For each={bottomTexts}>
-              {(text, index) => (
-                <Presence>
-                  <Show when={index() === activeIndex()}>
-                    <Motion.h2
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 1 }}
-                      class="bottom-text text-black text-2xl md:text-3xl w-fit h-fit font-bold absolute"
-                    >
-                      {text}
-                    </Motion.h2>
-                  </Show>
-                </Presence>
-              )}
-            </For>
+            <h2
+              ref={bottomTextRef}
+              class="bottom-text text-black text-2xl md:text-3xl w-fit h-fit font-bold absolute"
+            >
+              {bottomTexts[activeIndex()]}
+            </h2>
           </div>
           <div class="flex w-1/2 relative">
             <For each={smallerImages}>

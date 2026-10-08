@@ -82,7 +82,7 @@ const Footer = () => {
                         <span class="text-md text-tedx-milky group-hover:text-tedx-red transition-all">tedx@sjcetpalai.ac.in</span>
                     </a>
 
-                    <a href="tel:+918330096752" class="flex items-center gap-2 w-full group">
+                    <a href="tel:+918848613249" class="flex items-center gap-2 w-full group">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="34"
@@ -97,7 +97,7 @@ const Footer = () => {
                         >
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                         </svg>
-                        <span class="textmd text-tedx-milky group-hover:text-tedx-red transition-all">+918330096752</span>
+                        <span class="textmd text-tedx-milky group-hover:text-tedx-red transition-all">+91 8848613249</span>
                     </a>
 
                     <a href="https://maps.app.goo.gl/7pEPWL48oYFQuGYD8" class="flex items-start gap-2 w-full group">
