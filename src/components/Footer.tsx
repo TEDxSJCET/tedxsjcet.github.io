@@ -63,7 +63,7 @@ const Footer = () => {
                 </div>
 
                 <div class="flex flex-col items-end gap-4 opacity-70 font-sans">
-                    <a href="mailto:tedx@sjcetpalai.ac.in" class="flex items-center gap-2 w-full group">
+                    <a href="mailto:tedx2026@sjcetpalai.ac.in" class="flex items-center gap-2 w-full group">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="34"
